@@ -6,18 +6,36 @@
 //
 
 import UIKit
+import CoreLocation
+import SPAlert
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var lblCalendarTitle: UILabel!
+    @IBOutlet weak var lblDistanceToTarget: UILabel!
     
     private var calendarData: CalendarData!
     private var accessRecordManager = AccessRecordManager()
     private let calendar = Calendar(identifier: .gregorian)
     
+    private let locationManager = GPSLocationManager()
+    /// 목표 영역 안으로 들어온 상태, 벗어나면 토글
+    private var isEnteredTargetArea = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        switch locationManager.authStatus {
+        case .notDetermined, .authorizedAlways, .authorizedWhenInUse:
+            locationManager.instantStartUpdatingLocation(delegateTo: self)
+        case .restricted:
+            break
+        case .denied:
+            break
+        @unknown default:
+            break
+        }
         
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
@@ -29,6 +47,10 @@ class ViewController: UIViewController {
         })
         
         lblCalendarTitle.text = calendarData.localizedCalendarTitle
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     @IBAction func btnActPrevMonth(_ sender: Any) {
@@ -123,6 +145,44 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension ViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let currentLocation: CLLocationCoordinate2D = manager.location?.coordinate else {
+            return
+        }
+        
+        guard let savedCoordinate = loadCoordFromUserDefaults() else {
+            return
+        }
+        
+        // 현재 위치 업데이트 (정보만)
+        let coord0 = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+        let coord1 = CLLocation(latitude: savedCoordinate.latitude, longitude: savedCoordinate.longitude)
+        let distance = coord0.distance(from: coord1)
+        
+        lblDistanceToTarget.text = String(format: "Distance(m): %.2f", distance)
+        
+        let currentlyTargetEntered = distance < 30
+        if !isEnteredTargetArea && currentlyTargetEntered {
+            // popup message
+            let alertView = SPAlertView(title: "장소에 도착함", message: "잘 했어요!", preset: .custom(UIImage(named: "mountain.2.fill")!))
+            alertView.backgroundColor = .green
+            alertView.present(haptic: .success, completion: nil)
+            
+            AccessRecordManager.addCurrentDate()
+            accessRecordManager = AccessRecordManager()
+            calendarCollectionView.reloadData()
+            // DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [unowned self] in
+            //
+            // }
+            
+            isEnteredTargetArea = true
+        } else if isEnteredTargetArea && !currentlyTargetEntered {
+            isEnteredTargetArea = false
+        }
+    }
+}
+
 class DayCell: UICollectionViewCell {
     @IBOutlet weak var lblNumber: UILabel!
     @IBOutlet weak var viewPlant: GrassView!
@@ -144,12 +204,15 @@ class DayCell: UICollectionViewCell {
     }
     
     func plantAccessRecord(shape: GrassShape) {
-        viewPlant.layoutIfNeeded()
+        lblNumber.layoutIfNeeded()
+        viewPlant.frame = CGRect(x: 0, y: lblNumber.frame.maxY + 10, width: self.frame.width, height: 10)
         
         if shape == .standalone {
-            viewPlant.transform = CGAffineTransform(scaleX: 0.6, y: 1)
+            let width = self.frame.width * 0.7
+            let x = (self.frame.width - width) / 2
+            viewPlant.frame = CGRect(x: x, y: lblNumber.frame.maxY + 10, width: width, height: 10)
         } else {
-            viewPlant.transform = CGAffineTransform(scaleX: 1, y: 1)
+            viewPlant.frame = CGRect(x: 0, y: lblNumber.frame.maxY + 10, width: self.frame.width, height: 10)
         }
             
         let radius: CGFloat = shape == .standalone ? 10 : 5

@@ -12,3 +12,5 @@ let ACCESSED_URLS = "AccessedURLs"
 
 /// 앱을 연 시점을 기록한 배열에 대한 UserDefaults Key
 let APP_OPEN_DATES = "OpenDates"
+
+let SELECTED_COORDINATE = "SelectedCoordinate"

@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5F6-fJ-HuO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="XOO-J0-P6t">
+            <objects>
+                <navigationController id="5F6-fJ-HuO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ecy-m2-bpQ">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3fZ-63-b0o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jU4-tH-l3f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1714" y="-352"/>
+        </scene>
+        <!--Progress Calendar-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BeGo_Everyday" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2003년 2월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aU7-md-wne">
-                                <rect key="frame" x="20" y="48" width="324" height="72"/>
+                                <rect key="frame" x="20" y="92" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="2Lo-Ej-bgA"/>
                                 </constraints>
@@ -28,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r9m-N7-j3s">
-                                <rect key="frame" x="20" y="128" width="374" height="641"/>
+                                <rect key="frame" x="20" y="172" width="374" height="606.5"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="fDc-DE-FOL">
                                     <size key="itemSize" width="58" height="72"/>
@@ -37,14 +54,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCell" id="IdC-2A-7Aw" customClass="DayCell" customModule="LanguageWeb" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCell" id="IdC-2A-7Aw" customClass="DayCell" customModule="BeGo_Everyday" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="58" height="72"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iLT-Gw-3ve">
                                             <rect key="frame" x="0.0" y="0.0" width="58" height="72"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3I-Le-90K" customClass="GrassView" customModule="LanguageWeb" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3I-Le-90K" customClass="GrassView" customModule="BeGo_Everyday" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="24.5" width="58" height="12"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -130,7 +147,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRv-Qz-9U3">
-                                <rect key="frame" x="319" y="777" width="75" height="30"/>
+                                <rect key="frame" x="319" y="786.5" width="75" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="5kg-nz-d21"/>
                                     <constraint firstAttribute="height" constant="30" id="HDo-PG-e9h"/>
@@ -146,7 +163,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGc-NK-zNR">
-                                <rect key="frame" x="20" y="777" width="75" height="30"/>
+                                <rect key="frame" x="20" y="786.5" width="75" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3Aw-n0-H06"/>
                                     <constraint firstAttribute="width" constant="75" id="3Yb-JT-Fen"/>
@@ -161,52 +178,144 @@
                                     <action selector="btnActPrevMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WcT-vf-nwB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5p0-02-gTL">
-                                <rect key="frame" x="369" y="63" width="25" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="Hcr-ux-KJW"/>
-                                    <constraint firstAttribute="width" constant="25" id="Mch-jn-SB9"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="gearshape.fill" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18"/>
-                                </state>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance(m): 30m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEU-s2-3Dc">
+                                <rect key="frame" x="103" y="795.5" width="208" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="r9m-N7-j3s" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.787469" id="2Bz-nF-vfT"/>
+                            <constraint firstItem="mEU-s2-3Dc" firstAttribute="centerY" secondItem="eGc-NK-zNR" secondAttribute="centerY" constant="2.5" id="4y0-YB-Wf6"/>
+                            <constraint firstItem="pRv-Qz-9U3" firstAttribute="leading" secondItem="mEU-s2-3Dc" secondAttribute="trailing" constant="8" symbolic="YES" id="BKP-sq-sl4"/>
                             <constraint firstItem="r9m-N7-j3s" firstAttribute="top" secondItem="aU7-md-wne" secondAttribute="bottom" constant="8" symbolic="YES" id="KYj-1w-XyA"/>
                             <constraint firstItem="pRv-Qz-9U3" firstAttribute="trailing" secondItem="r9m-N7-j3s" secondAttribute="trailing" id="LWN-Zr-7ie"/>
+                            <constraint firstItem="mEU-s2-3Dc" firstAttribute="leading" secondItem="eGc-NK-zNR" secondAttribute="trailing" constant="8" symbolic="YES" id="OoP-8F-hcU"/>
                             <constraint firstItem="aU7-md-wne" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Q7M-5t-VmW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5p0-02-gTL" secondAttribute="trailing" constant="20" id="SZ9-th-pgd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r9m-N7-j3s" secondAttribute="trailing" constant="20" id="Ues-KP-sYf"/>
-                            <constraint firstItem="5p0-02-gTL" firstAttribute="leading" secondItem="aU7-md-wne" secondAttribute="trailing" constant="25" id="Yrs-kV-0c0"/>
                             <constraint firstItem="eGc-NK-zNR" firstAttribute="top" secondItem="r9m-N7-j3s" secondAttribute="bottom" constant="8" symbolic="YES" id="azN-p9-tpV"/>
-                            <constraint firstItem="5p0-02-gTL" firstAttribute="centerY" secondItem="aU7-md-wne" secondAttribute="centerY" id="eXx-CW-Xjb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aU7-md-wne" secondAttribute="trailing" constant="20" id="d9C-G0-hGo"/>
+                            <constraint firstItem="mEU-s2-3Dc" firstAttribute="centerX" secondItem="r9m-N7-j3s" secondAttribute="centerX" id="drp-f0-uYM"/>
                             <constraint firstItem="aU7-md-wne" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="h0N-tz-xYR"/>
                             <constraint firstItem="pRv-Qz-9U3" firstAttribute="top" secondItem="r9m-N7-j3s" secondAttribute="bottom" constant="8" symbolic="YES" id="jHi-23-SGQ"/>
                             <constraint firstItem="r9m-N7-j3s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="our-Oh-xUy"/>
                             <constraint firstItem="eGc-NK-zNR" firstAttribute="leading" secondItem="r9m-N7-j3s" secondAttribute="leading" id="pRv-ns-g0I"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Progress Calendar" id="WV2-Qm-bGb">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape.fill" catalog="system" id="xQa-c9-mhZ">
+                            <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                            <connections>
+                                <segue destination="Kuw-oJ-5XB" kind="show" id="G4r-Hh-YCF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calendarCollectionView" destination="r9m-N7-j3s" id="nhM-eK-bSY"/>
                         <outlet property="lblCalendarTitle" destination="aU7-md-wne" id="GRr-MG-B3K"/>
+                        <outlet property="lblDistanceToTarget" destination="mEU-s2-3Dc" id="GyJ-Uh-cyG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31.884057971014496" y="-27.455357142857142"/>
+            <point key="canvasLocation" x="-833.33333333333337" y="-352.23214285714283"/>
+        </scene>
+        <!--장소 선택-->
+        <scene sceneID="udA-Vf-6Nz">
+            <objects>
+                <viewController id="Kuw-oJ-5XB" customClass="PlaceSelectViewController" customModule="BeGo_Everyday" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wjf-s9-6Rx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ka-aW-gFh">
+                                <rect key="frame" x="20" y="179" width="374" height="613"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="위도(lat), 경도(lon): 127.1332, 127.3334" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwY-mq-fgf">
+                                <rect key="frame" x="20" y="800" width="324" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="길게 탭하면 장소가 선택됩니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxl-GW-DL0">
+                                <rect key="frame" x="20" y="92" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imf-Nl-8Lu">
+                                <rect key="frame" x="20" y="179" width="27" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="scope" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnActMoveCurrentLocation:" destination="Kuw-oJ-5XB" eventType="touchUpInside" id="3Ee-hS-AAE"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gLJ-qn-o1g">
+                                <rect key="frame" x="0.0" y="122" width="413" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Kuw-oJ-5XB" id="bgM-WG-NOn"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTX-ba-NVC">
+                                <rect key="frame" x="352" y="800" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="이동"/>
+                                <connections>
+                                    <action selector="btnActGoSelectedPlace:" destination="Kuw-oJ-5XB" eventType="touchUpInside" id="dfi-rd-kGc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plp-ZV-sdz">
+                                <rect key="frame" x="20" y="829" width="158" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Reset All Records">
+                                    <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnActResetAllRecords:" destination="Kuw-oJ-5XB" eventType="touchUpInside" id="pJ4-6t-xa8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="M76-8J-scS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="장소 선택" id="sRe-e5-Jua"/>
+                    <connections>
+                        <outlet property="lblCoordinate" destination="cwY-mq-fgf" id="C2y-ZU-407"/>
+                        <outlet property="mapView" destination="2Ka-aW-gFh" id="vZ5-1j-zbY"/>
+                        <outlet property="searchBar" destination="gLJ-qn-o1g" id="TKM-ns-azL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YlS-4j-S2T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221.73913043478262" y="-352.23214285714283"/>
         </scene>
     </scenes>
     <resources>
         <image name="chevron.left.circle.fill" catalog="system" width="128" height="123"/>
         <image name="chevron.right.circle.fill" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="scope" catalog="system" width="128" height="124"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
