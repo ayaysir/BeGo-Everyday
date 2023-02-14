@@ -118,7 +118,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
                 cell.plantAccessRecord(shape: .fillLine)
             }
             
-            print(calendarData.days[indexPath.row].date, accessRecordManager.findAccessDateComponents(component), "||", isAccessedBeforeDay, isAccessedAfterDay)
+            // print(calendarData.days[indexPath.row].date, accessRecordManager.findAccessDateComponents(component), "||", isAccessedBeforeDay, isAccessedAfterDay)
         } else {
             cell.plantAccessRecord(shape: .none)
         }
@@ -172,9 +172,6 @@ extension ViewController: CLLocationManagerDelegate {
             AccessRecordManager.addCurrentDate()
             accessRecordManager = AccessRecordManager()
             calendarCollectionView.reloadData()
-            // DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [unowned self] in
-            //
-            // }
             
             isEnteredTargetArea = true
         } else if isEnteredTargetArea && !currentlyTargetEntered {
@@ -205,14 +202,17 @@ class DayCell: UICollectionViewCell {
     
     func plantAccessRecord(shape: GrassShape) {
         lblNumber.layoutIfNeeded()
-        viewPlant.frame = CGRect(x: 0, y: lblNumber.frame.maxY + 10, width: self.frame.width, height: 10)
+        let yMargin: CGFloat = 20
         
         if shape == .standalone {
-            let width = self.frame.width * 0.7
+            let width = self.frame.width * 0.65
             let x = (self.frame.width - width) / 2
-            viewPlant.frame = CGRect(x: x, y: lblNumber.frame.maxY + 10, width: width, height: 10)
+            viewPlant.frame = CGRect(x: x, y: lblNumber.frame.maxY + yMargin, width: width, height: 10)
         } else {
-            viewPlant.frame = CGRect(x: 0, y: lblNumber.frame.maxY + 10, width: self.frame.width, height: 10)
+            let marginX: CGFloat = 10
+            let x: CGFloat = shape == .leftStart ? marginX : 0
+            let width: CGFloat = self.frame.width - (shape == .rightEnd ? marginX : 0)
+            viewPlant.frame = CGRect(x: x, y: lblNumber.frame.maxY + yMargin, width: width, height: 10)
         }
             
         let radius: CGFloat = shape == .standalone ? 10 : 5

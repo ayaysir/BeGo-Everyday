@@ -19,6 +19,7 @@ class PlaceSelectViewController: UIViewController {
     private var currentLocation: CLLocationCoordinate2D!
     private var isFoundLocation = false
     private var lastAddedAnnotation: MKPointAnnotation?
+    private var currentLocationAnnotation: MKPointAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,6 +137,48 @@ extension PlaceSelectViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         //
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let title = annotation.title ?? nil, title == "Current Location" {
+            // print(annotation.title)
+            
+            let annotationView = MKAnnotationView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+            annotationView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.5)
+            annotationView.layer.cornerRadius = 10
+            
+            let label = OutlinedLabel(frame:  CGRect(x: 0, y: annotationView.frame.maxY + 2.5, width: 200, height: 20))
+            label.text = title
+            label.font = UIFont.systemFont(ofSize: 11, weight: .semibold)
+            label.outlineColor = .white
+            label.outlineWidth = 3
+            label.textColor = .black
+            label.textAlignment = .center
+            
+            // let attrString = NSAttributedString(
+            //     string: title,
+            //     attributes: [
+            //         .strokeColor: UIColor.white,
+            //         .foregroundColor: UIColor.black,
+            //         .strokeWidth: 2.0,
+            //         .font: UIFont.systemFont(ofSize: 10.0, weight: .semibold)
+            //     ]
+            // )
+            // label.attributedText = attrString
+            
+            label.sizeToFit()
+            let newWidth = label.frame.width + 3
+            label.frame = CGRect(
+                x: annotationView.frame.midX - (newWidth / 2),
+                y: label.frame.minY,
+                width: newWidth,
+                height: label.frame.height)
+            annotationView.addSubview(label)
+            
+            return annotationView
+        }
+
+        return nil
+    }
 }
 
 extension PlaceSelectViewController: CLLocationManagerDelegate {
@@ -148,6 +191,10 @@ extension PlaceSelectViewController: CLLocationManagerDelegate {
         
         // 현재 위치 업데이트 (정보만)
         currentLocation = locValue
+        if let currentLocationAnnotation = currentLocationAnnotation {
+            mapView.removeAnnotation(currentLocationAnnotation)
+        }
+        currentLocationAnnotation = addAnnotation(coordinate: locValue, title: "Current Location")
         
         guard UserDefaults.standard.string(forKey: SELECTED_COORDINATE) == nil else {
             // print(#function, "Saved coordinate does exist.")

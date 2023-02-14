@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440AD659299BE4530095C16D /* OutlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440AD658299BE4530095C16D /* OutlinedLabel.swift */; };
 		446DD0F029955A2600B8B697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD0EF29955A2600B8B697 /* AppDelegate.swift */; };
 		446DD0F229955A2600B8B697 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD0F129955A2600B8B697 /* SceneDelegate.swift */; };
 		446DD0F429955A2600B8B697 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD0F329955A2600B8B697 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		440AD658299BE4530095C16D /* OutlinedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedLabel.swift; sourceTree = "<group>"; };
 		446DD0EC29955A2600B8B697 /* BeGo Everyday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BeGo Everyday.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		446DD0EF29955A2600B8B697 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		446DD0F129955A2600B8B697 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		440AD657299BE4470095C16D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				440AD658299BE4530095C16D /* OutlinedLabel.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		446DD0E329955A2600B8B697 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,7 @@
 		446DD0EE29955A2600B8B697 /* BeGo Everyday */ = {
 			isa = PBXGroup;
 			children = (
+				440AD657299BE4470095C16D /* Util */,
 				446DD11D29977B8F00B8B697 /* Wrapper */,
 				446DD11A2997773F00B8B697 /* ViewController */,
 				446DD11229955C3E00B8B697 /* Extension */,
@@ -238,6 +249,7 @@
 				446DD11429955C5200B8B697 /* UIView+.swift in Sources */,
 				446DD10C29955B4400B8B697 /* Day.swift in Sources */,
 				446DD11129955C1700B8B697 /* GrassView.swift in Sources */,
+				440AD659299BE4530095C16D /* OutlinedLabel.swift in Sources */,
 				446DD0F229955A2600B8B697 /* SceneDelegate.swift in Sources */,
 				446DD10B29955B4400B8B697 /* AccessRecordManager.swift in Sources */,
 				446DD0FA29955A2600B8B697 /* BeGo_Everyday.xcdatamodeld in Sources */,
