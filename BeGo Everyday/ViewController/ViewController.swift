@@ -160,7 +160,11 @@ extension ViewController: CLLocationManagerDelegate {
         let coord1 = CLLocation(latitude: savedCoordinate.latitude, longitude: savedCoordinate.longitude)
         let distance = coord0.distance(from: coord1)
         
-        lblDistanceToTarget.text = String(format: "Distance(m): %.2f", distance)
+        if distance < 100 {
+            lblDistanceToTarget.text = String(format: "Distance(m): %.2f", distance)
+        } else {
+            lblDistanceToTarget.text = "Far Away"
+        }
         
         let currentlyTargetEntered = distance < 30
         if !isEnteredTargetArea && currentlyTargetEntered {
