@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-1714" y="-352"/>
         </scene>
-        <!--🏞️ Progress Calendar-->
+        <!--🏔️ Progress Calendar-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BeGo_Everyday" customModuleProvider="target" sceneMemberID="viewController">
@@ -205,7 +205,7 @@
                             <constraint firstItem="eGc-NK-zNR" firstAttribute="leading" secondItem="r9m-N7-j3s" secondAttribute="leading" id="pRv-ns-g0I"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="🏞️ Progress Calendar" id="WV2-Qm-bGb">
+                    <navigationItem key="navigationItem" title="🏔️ Progress Calendar" id="WV2-Qm-bGb">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape.fill" catalog="system" id="xQa-c9-mhZ">
                             <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                             <connections>
@@ -231,27 +231,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ka-aW-gFh">
-                                <rect key="frame" x="20" y="179" width="374" height="613"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ka-aW-gFh">
+                                <rect key="frame" x="0.0" y="178" width="414" height="626"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="위도(lat), 경도(lon): -, -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwY-mq-fgf">
-                                <rect key="frame" x="20" y="800" width="324" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위도(lat), 경도(lon): -, -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwY-mq-fgf">
+                                <rect key="frame" x="11" y="812" width="324" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="iNU-PI-eSd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="길게 탭하면 장소가 선택됩니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxl-GW-DL0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="길게 탭하면 장소가 선택됩니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxl-GW-DL0">
                                 <rect key="frame" x="20" y="92" width="374" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NUt-ms-BWl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imf-Nl-8Lu">
-                                <rect key="frame" x="20" y="179" width="27" height="27"/>
+                                <rect key="frame" x="11" y="177" width="27" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -262,26 +265,19 @@
                                     <action selector="btnActMoveCurrentLocation:" destination="Kuw-oJ-5XB" eventType="touchUpInside" id="3Ee-hS-AAE"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gLJ-qn-o1g">
+                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gLJ-qn-o1g">
                                 <rect key="frame" x="-1" y="122" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="Kuw-oJ-5XB" id="bgM-WG-NOn"/>
                                 </connections>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTX-ba-NVC">
-                                <rect key="frame" x="352" y="800" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="이동"/>
-                                <connections>
-                                    <action selector="btnActGoSelectedPlace:" destination="Kuw-oJ-5XB" eventType="touchUpInside" id="dfi-rd-kGc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plp-ZV-sdz">
-                                <rect key="frame" x="20" y="829" width="158" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plp-ZV-sdz">
+                                <rect key="frame" x="11" y="841" width="133" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5Rb-6K-Ep7"/>
+                                    <constraint firstAttribute="width" constant="133" id="xEV-oN-XGM"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Reset All Records">
                                     <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -290,9 +286,40 @@
                                     <action selector="btnActResetAllRecords:" destination="Kuw-oJ-5XB" eventType="touchUpInside" id="pJ4-6t-xa8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTX-ba-NVC">
+                                <rect key="frame" x="351" y="812" width="43" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="7dy-oi-U6x"/>
+                                    <constraint firstAttribute="width" constant="43" id="ydq-V0-bGu"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="이동"/>
+                                <connections>
+                                    <action selector="btnActGoSelectedPlace:" destination="Kuw-oJ-5XB" eventType="touchUpInside" id="dfi-rd-kGc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="M76-8J-scS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Plp-ZV-sdz" firstAttribute="top" secondItem="cwY-mq-fgf" secondAttribute="bottom" constant="8" symbolic="YES" id="38W-KH-M0p"/>
+                            <constraint firstItem="Jxl-GW-DL0" firstAttribute="top" secondItem="M76-8J-scS" secondAttribute="top" id="72W-hg-6zR"/>
+                            <constraint firstItem="M76-8J-scS" firstAttribute="trailing" secondItem="Jxl-GW-DL0" secondAttribute="trailing" constant="20" id="HtB-ne-u5W"/>
+                            <constraint firstItem="cwY-mq-fgf" firstAttribute="leading" secondItem="M76-8J-scS" secondAttribute="leading" constant="11" id="IVN-Yj-Xah"/>
+                            <constraint firstItem="2Ka-aW-gFh" firstAttribute="leading" secondItem="M76-8J-scS" secondAttribute="leading" id="JCh-eh-KSP"/>
+                            <constraint firstItem="2Ka-aW-gFh" firstAttribute="top" secondItem="gLJ-qn-o1g" secondAttribute="bottom" id="Jvp-ML-uWC"/>
+                            <constraint firstItem="M76-8J-scS" firstAttribute="trailing" secondItem="cTX-ba-NVC" secondAttribute="trailing" constant="20" id="NGl-PX-1Nj"/>
+                            <constraint firstItem="gLJ-qn-o1g" firstAttribute="top" secondItem="Jxl-GW-DL0" secondAttribute="bottom" id="OOp-G8-epL"/>
+                            <constraint firstItem="M76-8J-scS" firstAttribute="leading" secondItem="gLJ-qn-o1g" secondAttribute="leading" constant="1" id="Qzq-Xc-8Ti"/>
+                            <constraint firstItem="Jxl-GW-DL0" firstAttribute="leading" secondItem="M76-8J-scS" secondAttribute="leading" constant="20" id="STJ-Sd-U45"/>
+                            <constraint firstItem="cTX-ba-NVC" firstAttribute="leading" secondItem="cwY-mq-fgf" secondAttribute="trailing" constant="16" id="aYH-9d-aTb"/>
+                            <constraint firstItem="cwY-mq-fgf" firstAttribute="top" secondItem="2Ka-aW-gFh" secondAttribute="bottom" constant="8" symbolic="YES" id="b8y-eR-xu9"/>
+                            <constraint firstItem="M76-8J-scS" firstAttribute="trailing" secondItem="2Ka-aW-gFh" secondAttribute="trailing" id="bUV-W6-avY"/>
+                            <constraint firstItem="M76-8J-scS" firstAttribute="trailing" secondItem="gLJ-qn-o1g" secondAttribute="trailing" constant="1" id="oTy-to-kIg"/>
+                            <constraint firstItem="M76-8J-scS" firstAttribute="bottom" secondItem="Plp-ZV-sdz" secondAttribute="bottom" id="rOD-A5-HLz"/>
+                            <constraint firstItem="cTX-ba-NVC" firstAttribute="centerY" secondItem="cwY-mq-fgf" secondAttribute="centerY" id="tSB-6J-s8S"/>
+                            <constraint firstItem="Plp-ZV-sdz" firstAttribute="leading" secondItem="M76-8J-scS" secondAttribute="leading" constant="11" id="vdV-7J-GnX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="장소 선택" id="sRe-e5-Jua"/>
                     <connections>
